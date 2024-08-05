@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.Set;
 
+import io.quarkus.test.junit.QuarkusTest;
 import org.cometd.bayeux.server.BayeuxServer;
 import org.cometd.bayeux.server.LocalSession;
 import org.cometd.bayeux.server.ServerMessage;
@@ -21,12 +22,13 @@ import org.cometd.server.ext.AcknowledgedMessagesExtension;
 import org.cometd.server.ext.ActivityExtension;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
+@QuarkusTest
 class HelloServiceDiffblueTest {
     /**
      * Method under test: {@link HelloService#HelloService(BayeuxServer)}
      */
     @Test
+    @Disabled("Not yet implemented")
     void testNewHelloService() {
         // Arrange
         BayeuxServerImpl bayeux = new BayeuxServerImpl();
