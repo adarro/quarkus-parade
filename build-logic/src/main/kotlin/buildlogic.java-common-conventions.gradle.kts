@@ -1,15 +1,28 @@
+import org.gradle.accessors.dm.LibrariesForLibs
+
 plugins {
-    // enforcing Quarkus BOM to allign Java / Kotlin versions
+    // enforcing Quarkus BOM to align Java / Kotlin versions
     id("buildlogic.quarkus-common-conventions")
     java
 }
+val libs = the<LibrariesForLibs>()
+// include lombok plugin for Java projects but not Scala / Kotlin projects
+if (!pluginManager.hasPlugin("kotlin") && !pluginManager.hasPlugin("scala")) {
+    logger.info("Adding Lombok plugin to ${project.name}")
+    apply(plugin = "io.freefair.lombok")
 
+}
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
     }    
 }
 
+dependencies {
+    implementation(libs.org.cometd.java.client.http.jetty)
+
+
+}
 // tasks.withType<JavaCompile> {
 //     options.encoding = "UTF-8"
 //     options.compilerArgs.add("-parameters")

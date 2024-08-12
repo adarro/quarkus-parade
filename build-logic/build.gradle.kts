@@ -23,4 +23,6 @@ dependencies {
 // kotlin plugin versioning needs to match by quarkus bom (quarkus-kotlin)
     implementation(libs.kotlin.gradle.plugin)
     implementation(libs.kotlin.allopen.plugin)
+    implementation(libs.freefair.lombok.plugin)
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
