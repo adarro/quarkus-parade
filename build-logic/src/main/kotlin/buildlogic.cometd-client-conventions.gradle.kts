@@ -2,7 +2,6 @@ import org.gradle.accessors.dm.LibrariesForLibs
 
 plugins {
     id("buildlogic.java-common-conventions") apply false
-
 }
 val libs = the<LibrariesForLibs>()
 /*
