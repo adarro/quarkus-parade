@@ -6,7 +6,6 @@ import io.truthencode.client.cometd.CometDClient;
 import io.truthencode.client.cometd.CometDClientConfig;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;

@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/cometd-client" />
+            <option value="$PROJECT_DIR$/cometd-server" />
             <option value="$PROJECT_DIR$/dal" />
             <option value="$PROJECT_DIR$/list" />
             <option value="$PROJECT_DIR$/mqtt" />

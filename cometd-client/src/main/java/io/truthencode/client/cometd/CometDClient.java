@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.cometd.bayeux.Message;
 import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
-import org.cometd.common.TransportException;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -162,7 +161,7 @@ public class CometDClient {
         subscribe(channel, listener);
     }
 
-    public void subscribe() throws Exception {
+    public void subscribe() {
         subscribe(defaultListener);
     }
 
@@ -206,7 +205,7 @@ public class CometDClient {
     }
 
     @Shutdown
-    public void detach() throws Exception {
+    public void detach() {
         if (client.isConnected())
             client.disconnect(disconnectReply -> {
                 if (disconnectReply.isSuccessful()) {
