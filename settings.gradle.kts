@@ -17,4 +17,4 @@ plugins {
 }
 
 rootProject.name = "quarkus-parade"
-include("app", "list", "utilities", "mqtt", "dal", "cometd-client")
+include("app", "list", "utilities", "mqtt", "dal", "cometd-client", "cometd-server")

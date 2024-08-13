@@ -2,22 +2,21 @@ package io.truthencode.client.cometd;
 
 import io.quarkus.logging.Log;
 import io.smallrye.common.constraint.NotNull;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
 import jakarta.websocket.ContainerProvider;
 import jakarta.websocket.WebSocketContainer;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.Setter;
 import org.cometd.client.BayeuxClient;
 import org.cometd.client.http.jetty.JettyHttpClientTransport;
 import org.cometd.client.transport.ClientTransport;
 import org.cometd.client.websocket.jakarta.WebSocketTransport;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.hibernate.validator.constraints.URL;
 
-@Deprecated
+@Dependent
 public class CometDClientConfig {
 
     /**
@@ -26,13 +25,13 @@ public class CometDClientConfig {
      * vanilla es6 template.
      */
     @Inject
-    @ConfigProperty(name = "cometd.context", defaultValue = "/cometd-es6")
+    @ConfigProperty(name = "cometd.context", defaultValue = "/cometd-server")
     String context;
     @Inject
     @ConfigProperty(name = "cometd.apiPath", defaultValue = "/cometd")
     String apiPath;
     @Inject
-    @ConfigProperty(name = "cometd.host", defaultValue = "http://localhost:8080")
+    @ConfigProperty(name = "cometd.host", defaultValue = "http://localhost")
     String host;
     @Inject
     @ConfigProperty(name = "cometd.port", defaultValue = "8080")
@@ -48,8 +47,11 @@ public class CometDClientConfig {
      * @return the CometD URL using supplied properties.
      */
     @NotNull
-    private String buildCometDUrl() {
-        return String.format("%s:%s%s%s", host, port, context, apiPath);
+    @URL
+    String buildCometDUrl() {
+        String url =         String.format("%s:%s%s%s", host, port, context, apiPath);
+        Log.info(String.format("CometD service URL: %s", url));
+        return url;
     }
 
 

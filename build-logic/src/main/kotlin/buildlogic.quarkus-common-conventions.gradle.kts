@@ -10,6 +10,9 @@ val quarkusPlatformVersion: String by project
 dependencies {
     implementation(enforcedPlatform("$quarkusPlatformGroupId:$quarkusPlatformArtifactId:$quarkusPlatformVersion"))
     implementation("io.quarkus:quarkus-arc")
+    implementation("io.quarkus:quarkus-hibernate-validator") {
+        because("Hibernate Validator is an implementation of the Jakarta Bean Validation specification. Not specific to JPA.")
+    }
 //    implementation("io.quarkus:quarkus-rest")
     testImplementation("io.quarkus:quarkus-junit5")
 //    testImplementation("io.rest-assured:rest-assured")

@@ -125,8 +125,14 @@ public class CometDClient {
                     setConnected(false);
                     Log.error(String.format("Handshake failed, available keys are: %s", handshakeReply.keySet()));
                     HashMap<String, Object> f = (HashMap<String, Object>) handshakeReply.get("failure");
-                    TransportException te = (TransportException) f.get("exception");
-                    Log.error("Failure message: %s", te.getMessage(), te);
+                    for (String key : f.keySet()) {
+                        Log.error(String.format("message k:%s\t v:%s",f, f.get(key)));
+                    }
+//                    Exception exception = (Exception) f.get("failure");
+//                    String message = exception.getMessage();
+//                    Log.error("Failure message: %s", message,exception);
+//                    TransportException te = (TransportException) f.get("exception");
+//                    Log.error("Failure message: %s", te.getMessage(), te);
                 }
             });
         }
