@@ -12,6 +12,7 @@ jakarta-servlet-jakarta-servlet-api = "6.0.0"
 org-cometd-java = "8.0.2"
 org-eclipse-jetty = "12.0.10"
 jetbrains-xodus = "2.0.1"
+allure = "2.25.0"
 
 
 [libraries]
@@ -36,3 +37,4 @@ org-eclipse-jetty-jetty-slf4j-impl = { module = "org.eclipse.jetty:jetty-slf4j-i
 org-eclipse-jetty-jetty-util = { module = "org.eclipse.jetty:jetty-util", version.ref = "org-eclipse-jetty" }
 org-eclipse-jetty-jetty-util-ajax = { module = "org.eclipse.jetty:jetty-util-ajax", version.ref = "org-eclipse-jetty" }
 jetbrains-xodus-xodus-openAPI = { module = "org.jetbrains.xodus:xodus-openAPI", version.ref = "jetbrains-xodus" }
+allure-bom = { module = "io.qameta.allure:allure-bom", version.ref = "allure" }

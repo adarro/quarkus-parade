@@ -19,6 +19,9 @@ java {
 
 dependencies {
     implementation(libs.org.cometd.java.client.http.jetty)
+    testImplementation(platform(libs.allure.bom))
+    // Add necessary Allure dependencies to dependencies section
+    testImplementation("io.qameta.allure:allure-junit5")
 }
 // tasks.withType<JavaCompile> {
 //     options.encoding = "UTF-8"
